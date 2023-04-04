@@ -60,14 +60,16 @@ dados <-
   na.exclude() %>% 
   as_tibble()
 
-fit <- lm("y ~ x1 + x2 + x3", data = dados)
+# fit <- lm("y ~ x1 + x2 + x3", data = dados)
+fit <- lm("y ~ x1", data = dados)
 summary(fit)
 
 
+plot(fit)
 
+plot(fit$fitted.values, dados$y, pch=16, col=3)
 
-
-
+abline(coef=fit$coefficients)
 
 
 
